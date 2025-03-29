@@ -1,8 +1,8 @@
+import 'package:logging/logging.dart';
 import 'package:test_effective/src/core/extension_types/character_id.dart';
 import 'package:test_effective/src/core/rest_client/rest_client.dart';
 import 'package:test_effective/src/data/dto/character_dto.dart';
 import 'package:test_effective/src/data/repositories/character_repository/i_character_api.dart';
-import 'package:logging/logging.dart';
 
 class CharacterApi implements ICharactersApi {
   CharacterApi(this._client) {

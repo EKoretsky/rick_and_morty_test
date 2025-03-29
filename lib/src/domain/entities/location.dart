@@ -13,7 +13,9 @@ class Location extends Equatable {
 
   @override
   bool? get stringify => true;
+}
 
+extension Copy on Location {
   Location copyWith({String? name, String? url}) {
     return Location(name: name ?? this.name, url: url ?? this.url);
   }

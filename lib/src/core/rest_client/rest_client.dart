@@ -29,36 +29,6 @@ class RestClient {
     );
   }
 
-  // Future<void> post(
-  //   String path, {
-  //   Object? data,
-  //   Map<String, dynamic>? queryParameters,
-  //   Options? options,
-  //   CancelToken? cancelToken,
-  //   void Function(int, int)? onSendProgress,
-  //   void Function(int, int)? onReceiveProgress,
-  // }) async {
-  //   _client.post(
-  //     path,
-  //     data: data,
-  //     options: options,
-  //     queryParameters: queryParameters,
-  //     onReceiveProgress: onSendProgress,
-  //     cancelToken: cancelToken,
-  //     onSendProgress: onSendProgress,
-  //   );
-  // }
-  //
-  // Future<void> delete(
-  //   String path, {
-  //   Object? data,
-  //   Map<String, dynamic>? queryParameters,
-  //   Options? options,
-  //   CancelToken? cancelToken,
-  // }) async {
-  //   _client.delete(path, data: data, options: options, cancelToken: cancelToken, queryParameters: queryParameters);
-  // }
-
   static Dio _createDio() {
     final dio = Dio(
       BaseOptions(
@@ -69,12 +39,7 @@ class RestClient {
     );
 
     dio.interceptors.add(
-      LogInterceptor(
-        request: false,
-        requestBody: false,
-        requestHeader: false,
-        responseHeader: false,
-      ),
+      LogInterceptor(request: false, requestBody: false, requestHeader: false, responseHeader: false),
     );
     return dio;
   }

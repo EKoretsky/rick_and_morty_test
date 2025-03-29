@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_effective/src/core/rest_client/rest_client.dart';
 import 'package:test_effective/src/data/data_source/remote/character_api.dart';
 import 'package:test_effective/src/data/repositories/character_repository/character_repository.dart';
-import 'package:test_effective/src/presentation/screens/home_screen/characters_bloc/characters_bloc.dart';
+import 'package:test_effective/src/presentation/screens/characters_screen/characters_bloc/characters_bloc.dart';
 
 class DiContainer extends StatelessWidget {
   const DiContainer({super.key, required this.child});
@@ -15,7 +15,7 @@ class DiContainer extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         RepositoryProvider(
-          create: (context) {
+          create: (_) {
             final characterApi = CharacterApi(RestClient());
             return CharacterRepository(characterApi);
           },
@@ -26,16 +26,6 @@ class DiContainer extends StatelessWidget {
             return CharactersBloc(repo)..add(CharactersEvt.getCharacters());
           },
         ),
-        // ChangeNotifierProvider(
-        //   create: (context) {
-        //     return CharactersVm(context.read<CharacterRepository>());
-        //   },
-        // ),
-        // ChangeNotifierProvider(
-        //   create: (context) {
-        //     return FavoritesVm();
-        //   },
-        // ),
       ],
       child: child,
     );

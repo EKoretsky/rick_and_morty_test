@@ -1,7 +1,6 @@
 import 'package:test_effective/src/core/extension_types/character_id.dart';
 import 'package:test_effective/src/data/repositories/character_repository/i_character_api.dart';
 import 'package:test_effective/src/domain/entities/character.dart';
-import 'package:test_effective/src/domain/entities/location.dart';
 import 'package:test_effective/src/domain/repositories/i_character_repository.dart';
 
 final class CharacterRepository implements ICharacterRepository {

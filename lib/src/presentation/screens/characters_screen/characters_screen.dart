@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logging/logging.dart';
-import 'package:test_effective/src/presentation/screens/home_screen/character_card.dart';
-import 'package:test_effective/src/presentation/screens/home_screen/characters_bloc/characters_bloc.dart';
+import 'package:test_effective/src/presentation/screens/characters_screen/character_card.dart';
+import 'package:test_effective/src/presentation/screens/characters_screen/characters_bloc/characters_bloc.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CharacterScreen extends StatefulWidget {
+  const CharacterScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CharacterScreen> createState() => _CharacterScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CharacterScreenState extends State<CharacterScreen> {
   static final _log = Logger('HomeScreen');
 
   final _scrollController = ScrollController();
@@ -42,9 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    _log.info('build HomeScreen');
-    //
+
+    _log.info('build CharacterScreen');
+
     return Scaffold(
+      appBar: AppBar(),
       body: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, state) {
           _log.info('CharactersState is ${state.runtimeType}');
